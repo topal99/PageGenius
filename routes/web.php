@@ -3,7 +3,6 @@
 use Illuminate\Support\Facades\Route;
 use App\Livewire\UserDashboard;
 use App\Livewire\PageCreate;
-use App\Livewire\PageEdit; // Disimpan untuk langkah selanjutnya
 use App\Livewire\PageEditor;
 use App\Http\Controllers\PublicPageController;
 
@@ -25,6 +24,14 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/pages/create', PageCreate::class)->name('pages.create');
     Route::view('profile', 'profile')->name('profile');
     Route::get('/editor/{page}', PageEditor::class)->name('editor.show');
+    
+    // Tambahkan route logout
+    Route::post('/logout', function () {
+        auth()->logout();
+        request()->session()->invalidate();
+        request()->session()->regenerateToken();
+        return redirect('/');
+    })->name('logout');
 
 });
 
