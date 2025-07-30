@@ -14,6 +14,7 @@ class PageEditor extends Component
 
     // Properti untuk menampung semua data konten dari form
     public array $content = [];
+    public string $title = '';
 
     public function mount(Page $page)
     {
@@ -23,6 +24,8 @@ class PageEditor extends Component
         $this->page = $page;
         // Ambil konten yang sudah ada dari database (jika ada) dan masukkan ke form
         $this->content = $page->content ?? [];
+        $this->title = $page->title;
+
     }
 
     public function save()
@@ -43,6 +46,7 @@ class PageEditor extends Component
         
         // Simpan semua data dari array $content ke kolom JSON di database
         $this->page->update([
+            'title' => $this->title,
             'content' => $this->content,
         ]);
         

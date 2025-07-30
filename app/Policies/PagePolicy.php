@@ -45,7 +45,8 @@ class PagePolicy
      */
     public function delete(User $user, Page $page): bool
     {
-        return false;
+        // Izinkan hapus HANYA JIKA user_id di page sama dengan ID user yang login
+        return $user->id === $page->user_id;
     }
 
     /**

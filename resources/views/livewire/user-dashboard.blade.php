@@ -14,6 +14,8 @@
                             Buat Halaman Baru
                         </a>
                     </div>
+
+                    
                     @forelse ($pages as $page)
                         <div class="border-t py-4 flex justify-between items-center">
                             <div>
@@ -22,8 +24,15 @@
                                     /{{ $page->slug }}
                                 </a>
                             </div>
-                            <div>
+                            <div class="flex items-center space-x-4">
                                 <a href="{{ route('editor.show', $page) }}" class="text-sm text-gray-600 hover:text-gray-900">Edit</a>
+                                <button 
+                                    type="button" 
+                                    wire:click="deletePage({{ $page->id }})" 
+                                    wire:confirm="Apakah Anda yakin ingin menghapus halaman '{{ $page->title }}'?"
+                                    class="text-sm text-red-600 hover:text-red-900 font-medium">
+                                    Hapus
+                                </button>
                             </div>
                         </div>
                     @empty
