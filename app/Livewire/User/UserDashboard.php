@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Livewire\User;
 
 use Livewire\Component;
 use App\Models\Page;
@@ -19,7 +19,7 @@ class UserDashboard extends Component
     public function render()
     {
         // Pastikan menggunakan layout yang benar dan konsisten
-        return view('livewire.user-dashboard');
+        return view('livewire.user.user-dashboard');
     }
 
     public function deletePage(Page $page)

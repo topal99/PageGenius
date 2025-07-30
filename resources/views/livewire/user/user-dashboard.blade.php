@@ -15,7 +15,6 @@
                         </a>
                     </div>
 
-                    
                     @forelse ($pages as $page)
                         <div class="border-t py-4 flex justify-between items-center">
                             <div>
@@ -23,6 +22,13 @@
                                 <a href="{{ route('public.page.show', $page->slug) }}" target="_blank" class="text-sm text-blue-600 hover:underline">
                                     /{{ $page->slug }}
                                 </a>
+                                <p class="text-sm text-gray-500">Dibuat pada: {{ $page->created_at->format('d M Y') }}</p>
+                                <p class="text-sm text-gray-500">Terakhir diubah: {{ $page->updated_at->format('d M Y') }}</p>
+                                <p class="text-sm text-gray-500">Status:
+                                    <span class="{{ $page->status === 'published' ? 'text-green-600 font-semibold' : 'text-blue-600 font-semibold' }}">
+                                        {{ $page->status === 'published' ? 'Dipublikasikan' : 'Draft' }}
+                                    </span>
+                                </p>
                             </div>
                             <div class="flex items-center space-x-4">
                                 <a href="{{ route('editor.show', $page) }}" class="text-sm text-gray-600 hover:text-gray-900">Edit</a>

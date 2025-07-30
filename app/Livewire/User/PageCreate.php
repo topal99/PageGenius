@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Livewire\User;
 
 use Livewire\Component;
 use App\Models\Template; 
@@ -23,7 +23,7 @@ class PageCreate extends Component
             'user_id' => auth()->id(),
             'template_id' => $templateId,
             'title' => 'Halaman Baru Tanpa Judul', // Judul default
-            'slug' => 'halaman-' . Str::random(8), // Slug unik sementara
+            'slug' => 'halaman-' . Str::lower(Str::random(6)), // Ubah ini
             'status' => 'draft',
         ]);
 
@@ -33,6 +33,6 @@ class PageCreate extends Component
 
     public function render()
     {
-        return view('livewire.page-create');
+        return view('livewire.user.page-create');
     }
 }

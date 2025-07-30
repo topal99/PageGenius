@@ -18,6 +18,32 @@
                     <input type="text" wire:model.lazy="title" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm">
                 </div>
                 <div>
+                    <label for="slug" class="block text-sm font-medium text-gray-700">URL Slug</label>
+                    <div class="flex items-center mt-1">
+                        <span class="text-gray-500 bg-gray-100 p-2 rounded-l-md border border-r-0 border-gray-300">/</span>
+                        <input type="text" wire:model.lazy="slug" id="slug" class="block w-full rounded-r-md border-gray-300 shadow-sm">
+                    </div>
+                    @error('slug') <span class="text-red-500 text-xs">{{ $message }}</span> @enderror
+                    <p class="mt-2 text-sm text-gray-500">Ini akan menjadi URL publik halaman Anda. Gunakan huruf kecil, angka, dan tanda hubung (-).</p>
+                </div>
+
+                {{-- TOGGLE STATUS PUBLIKASI BARU --}}
+                <div>
+                    <label for="status" class="block text-sm font-medium text-gray-700">Status Halaman</label>
+                    <div class="mt-2 flex items-center">
+                        <span class="text-sm font-medium mr-3 {{ $status === 'draft' ? 'text-blue-600' : 'text-gray-500' }}">Draft</span>
+                        <button type="button" wire:click="toggleStatus"
+                                class="relative inline-flex flex-shrink-0 h-6 w-11 border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 {{ $status === 'published' ? 'bg-green-600' : 'bg-gray-200' }}"
+                                aria-pressed="false">
+                            <span aria-hidden="true"
+                                class="pointer-events-none inline-block h-5 w-5 rounded-full bg-white shadow transform ring-0 transition ease-in-out duration-200 {{ $status === 'published' ? 'translate-x-5' : 'translate-x-0' }}"></span>
+                        </button>
+                        <span class="text-sm font-medium ml-3 {{ $status === 'published' ? 'text-green-600' : 'text-gray-500' }}">Published</span>
+                    </div>
+                    <p class="mt-2 text-sm text-gray-500">Hanya halaman dengan status "Published" yang bisa diakses publik.</p>
+                </div>
+
+                <div>
                     <label class="block text-sm font-medium text-gray-700">Judul SEO (Tampil di Tab Browser)</label>
                     <input type="text" wire:model.lazy="content.meta_title" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm">
                 </div>
