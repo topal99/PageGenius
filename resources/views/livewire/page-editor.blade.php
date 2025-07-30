@@ -8,7 +8,7 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <form wire:submit.prevent="save" class="space-y-8">
-                
+
                 @if (session('status'))
                     <div class="p-4 mb-4 text-sm text-green-700 bg-green-100 rounded-lg" role="alert">
                         {{ session('status') }}
@@ -62,7 +62,7 @@
                 </div>
 
                 <div class="flex justify-end space-x-4">
-                    <a href="{{ route('public.page.show', $page->slug) }}" target="_blank" class="inline-block px-4 py-2 bg-gray-200 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-300">
+                    <a href="{{ route('public.page.show', ['page' => $page]) }}" target="_blank" class="inline-block px-4 py-2 bg-gray-200 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-300">
                         Lihat Halaman
                     </a>
                     <button type="submit" class="px-4 py-2 bg-blue-600 rounded-md text-sm font-medium text-white hover:bg-blue-700">

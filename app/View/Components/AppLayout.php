@@ -12,6 +12,7 @@ class AppLayout extends Component
      */
     public function render(): View
     {
-        return view('layouts.app');
+        // Arahkan ke lokasi file layout yang baru dan benar
+        return view('components.layouts.app');
     }
 }

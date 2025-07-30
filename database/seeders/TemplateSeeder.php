@@ -20,20 +20,20 @@ class TemplateSeeder extends Seeder
             'category' => 'Teknologi'
         ]);
 
-        Template::create([
-            'name' => 'Agen Properti',
-            'description' => 'Tampilkan listing properti terbaik Anda dengan template yang elegan ini.',
-            'view_path' => 'templates.property-v1',
-            'thumbnail_path' => '/thumbnails/property-v1.jpg',
-            'category' => 'Properti'
-        ]);
+        // Template::create([
+        //     'name' => 'Agen Properti',
+        //     'description' => 'Tampilkan listing properti terbaik Anda dengan template yang elegan ini.',
+        //     'view_path' => 'templates.property-v1',
+        //     'thumbnail_path' => '/thumbnails/property-v1.jpg',
+        //     'category' => 'Properti'
+        // ]);
 
-        Template::create([
-            'name' => 'Event & Webinar',
-            'description' => 'Promosikan acara, webinar, atau konferensi Anda dan kumpulkan pendaftar.',
-            'view_path' => 'templates.event-v1',
-            'thumbnail_path' => '/thumbnails/event-v1.jpg',
-            'category' => 'Acara'
-        ]);
+        // Template::create([
+        //     'name' => 'Event & Webinar',
+        //     'description' => 'Promosikan acara, webinar, atau konferensi Anda dan kumpulkan pendaftar.',
+        //     'view_path' => 'templates.event-v1',
+        //     'thumbnail_path' => '/thumbnails/event-v1.jpg',
+        //     'category' => 'Acara'
+        // ]);
     }
 }
