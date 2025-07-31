@@ -1,60 +1,107 @@
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+# PageGenius Mini Project
 
-## About Laravel
+PageGenius is a simple content management system (CMS) mini project built using the Laravel framework. This application allows users to create dynamic web pages based on pre-defined templates. There are two main roles in this system: **Admin** and **User**.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Development Environment
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+This project was built and tested using the following environment:
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- **PHP:** 8.2 or higher
+- **Framework:** Laravel 11
+- **Frontend:** Livewire, Tailwind CSS, Alpine.js
+- **Database:** MySQL / MariaDB (customizable in `config/database.php`)
+- **Web Server:** Apache / Nginx
+- **Node.js & NPM:** For frontend asset management
 
-## Learning Laravel
+## Installation Guide
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Here are the steps to install and run this project in your local environment:
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+1. **Clone Repository**
+```bash
+git clone https://github.com/username/project-name.git
+cd project-name
+```
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+2. **Install Composer Dependencies**
+Make sure you have Composer installed (https://getcomposer.org/). ```bash
+composer install
+```
 
-## Laravel Sponsors
+3. **Install NPM Dependencies**
+Make sure you have Node.js and NPM installed.
+```bash
+npm install
+npm run build
+```
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+4. **Configure Environment**
+Copy the `.env.example` file to `.env` and configure your database connection.
+```bash
+cp .env.example .env
+```
+Open the `.env` file and set the following variables according to your database configuration:
+```
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=your_database_name
+DB_USERNAME=your_database_user
+DB_PASSWORD=your_database_password
+```
 
-### Premium Partners
+5. **Generate Application Key**
+```bash
+php artisan key:generate
+```
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+6. **Migrate and Seed Database**
+Run migrations to create the necessary tables and seeders to populate the initial data (including admin and user accounts).
+```bash
+php artisan migrate --seed
+```
+The above command will create the following tables and data:
+- **Admin** account: `admin@example.com` with password `password`
+- **User** account: `user@example.com` with password `password`
+- Initial template for page creation.
 
-## Contributing
+7. **Run Development Server**
+```bash
+php artisan serve
+```
+The application will run on `http://127.0.0.1:8000`.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## Role-Based Features
 
-## Code of Conduct
+### Role: Admin
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+Admins have full access to manage content and users in the system.
 
-## Security Vulnerabilities
+- **Admin Dashboard:** The main page after logging in that provides a summary of statistics or quick navigation to key features.
+- **User Management:**
+- View a list of all users registered in the system.
+- View details about each user.
+- **Template Management:**
+- View a list of available templates.
+- Add a new template by providing a name, description, and blade file.
+- Edit existing template information.
+- Delete a template from the system.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+### Role: User
+
+A user is a registered user who can create and manage their own pages.
+
+- **User Dashboard:** Displays a list of pages created by the user.
+- **Page Create:**
+- Users can create a new page by selecting one of the available templates.
+- Provide a title and slug (URL) for the new page.
+- **Page Editor:**
+- Once a page is created, the user is redirected to the visual editor.
+- The editor allows users to edit text and image content directly within the selected template.
+- Changes are automatically saved to ensure no data is lost.
+- **Public Pages:** Every created page is accessible to anyone through a public URL (`/page/{slug}`).
 
 ## License
 
