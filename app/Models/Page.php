@@ -4,17 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsTo; // <-- Impor kelas BelongsTo
 
 class Page extends Model
 {
     use HasFactory;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
     protected $fillable = [
         'user_id',
         'template_id',
@@ -26,20 +21,23 @@ class Page extends Model
         'status',
     ];
 
-    /**
-     * The attributes that should be cast.
-     *
-     * @var array
-     */
     protected $casts = [
-        'content' => 'array', // Ini penting agar kolom JSON otomatis di-handle
+        'content' => 'array',
     ];
 
     /**
-     * Mendapatkan template yang digunakan oleh halaman ini.
+     * Definisikan relasi bahwa sebuah Halaman dimiliki oleh satu Template.
      */
     public function template(): BelongsTo
     {
         return $this->belongsTo(Template::class);
+    }
+
+    /**
+     * Definisikan relasi bahwa sebuah Halaman dimiliki oleh satu User.
+     */
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
     }
 }

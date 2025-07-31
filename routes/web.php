@@ -6,6 +6,10 @@ use App\Livewire\User\PageCreate;
 use App\Livewire\User\PageEditor;
 use App\Http\Controllers\PublicPageController;
 use App\Livewire\Admin\Dashboard as AdminDashboard;
+use App\Livewire\Admin\Users\Index as AdminUsersIndex; 
+use App\Livewire\Admin\Templates\Index as AdminTemplatesIndex; 
+use App\Livewire\Admin\Templates\Save as AdminTemplatesSave;
+use App\Livewire\Admin\Users\Show as AdminUsersShow; // <-- Tambahkan ini
 
 /*
 |--------------------------------------------------------------------------
@@ -32,10 +36,12 @@ Route::middleware(['auth', 'verified', 'user'])->group(function () {
 
 Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(function () {
     Route::get('/dashboard', AdminDashboard::class)->name('dashboard');
+    Route::get('/users', AdminUsersIndex::class)->name('users.index'); 
+    Route::get('/templates', AdminTemplatesIndex::class)->name('templates.index'); 
+    Route::get('/templates/create', AdminTemplatesSave::class)->name('templates.create');
+    Route::get('/templates/{template}/edit', AdminTemplatesSave::class)->name('templates.edit'); 
+    Route::get('/users/{user}', AdminUsersShow::class)->name('users.show'); // <-- Tambahkan route ini
 
-    // (Nantinya kita akan tambahkan route untuk manajemen user & template di sini)
-    // Route::get('/users', ...)->name('users.index');
-    // Route::get('/templates', ...)->name('templates.index');
 });
 
 Route::get('/{page:slug}', [PublicPageController::class, 'show'])->name('public.page.show');
