@@ -26,7 +26,8 @@ cd project-name
 ```
 
 2. **Install Composer Dependencies**
-Make sure you have Composer installed (https://getcomposer.org/). ```bash
+```bash
+Make sure you have Composer installed (https://getcomposer.org/).
 composer install
 ```
 
@@ -81,13 +82,13 @@ Admins have full access to manage content and users in the system.
 
 - **Admin Dashboard:** The main page after logging in that provides a summary of statistics or quick navigation to key features.
 - **User Management:**
-- View a list of all users registered in the system.
-- View details about each user.
+    - View a list of all users registered in the system.
+    - View details about each user.
 - **Template Management:**
-- View a list of available templates.
-- Add a new template by providing a name, description, and blade file.
-- Edit existing template information.
-- Delete a template from the system.
+    - View a list of available templates.
+    - Add a new template by providing a name, description, and blade file.
+    - Edit existing template information.
+    - Delete a template from the system.
 
 ### Role: User
 
@@ -95,12 +96,12 @@ A user is a registered user who can create and manage their own pages.
 
 - **User Dashboard:** Displays a list of pages created by the user.
 - **Page Create:**
-- Users can create a new page by selecting one of the available templates.
-- Provide a title and slug (URL) for the new page.
+    - Users can create a new page by selecting one of the available templates.
+    - Provide a title and slug (URL) for the new page.
 - **Page Editor:**
-- Once a page is created, the user is redirected to the visual editor.
-- The editor allows users to edit text and image content directly within the selected template.
-- Changes are automatically saved to ensure no data is lost.
+    - Once a page is created, the user is redirected to the visual editor.
+    - The editor allows users to edit text and image content directly within the selected template.
+    - Changes are automatically saved to ensure no data is lost.
 - **Public Pages:** Every created page is accessible to anyone through a public URL (`/page/{slug}`).
 
 ## License
