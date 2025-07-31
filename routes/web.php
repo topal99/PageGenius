@@ -10,6 +10,8 @@ use App\Livewire\Admin\Users\Index as AdminUsersIndex;
 use App\Livewire\Admin\Templates\Index as AdminTemplatesIndex; 
 use App\Livewire\Admin\Templates\Save as AdminTemplatesSave;
 use App\Livewire\Admin\Users\Show as AdminUsersShow; // <-- Tambahkan ini
+use App\Livewire\Admin\Users\Edit as AdminUsersEdit; // <-- Tambahkan ini
+
 
 /*
 |--------------------------------------------------------------------------
@@ -41,6 +43,7 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
     Route::get('/templates/create', AdminTemplatesSave::class)->name('templates.create');
     Route::get('/templates/{template}/edit', AdminTemplatesSave::class)->name('templates.edit'); 
     Route::get('/users/{user}', AdminUsersShow::class)->name('users.show'); // <-- Tambahkan route ini
+    Route::get('/users/{user}/edit', AdminUsersEdit::class)->name('users.edit'); // <-- Tambahkan route ini
 
 });
 

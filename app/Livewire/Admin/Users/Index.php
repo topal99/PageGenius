@@ -11,6 +11,22 @@ class Index extends Component
 {
     use WithPagination; // <-- Aktifkan fitur pagination
 
+        public function delete(User $user)
+    {
+        // Tambahkan pengaman agar admin tidak bisa menghapus akunnya sendiri
+        if ($user->id === auth()->id()) {
+            session()->flash('error', 'Anda tidak dapat menghapus akun Anda sendiri.');
+            return;
+        }
+
+        $user->delete();
+
+        session()->flash('status', 'Pengguna berhasil dihapus.');
+
+        // Reset pagination untuk kembali ke halaman pertama
+        $this->resetPage();
+    }
+
     public function render(): View
     {
         // Ambil semua user dengan pagination (10 per halaman)

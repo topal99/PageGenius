@@ -120,9 +120,7 @@
                     </a>
                     @endif
                 </div>
-                
-                <!-- Mobile Auth Buttons -->
-                
+                                
                 <!-- Mobile Menu Button -->
                 <div class="lg:hidden ml-4">
                     <button id="guest-mobile-menu-button" class="text-white hover:text-purple-200 transition-colors duration-300 p-2">
