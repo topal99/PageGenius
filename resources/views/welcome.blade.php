@@ -43,8 +43,8 @@
     <style>
         .gradient-bg {
             background: linear-gradient(-45deg, #667eea, #764ba2, #f093fb, #f5576c, #4facfe, #00f2fe);
-            background-size: 400% 400%;
-            animation: gradientShift 15s ease infinite;
+            /* background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite; */
         }
         
         @keyframes gradientShift {
@@ -952,9 +952,9 @@
                     </div>
                     
                     <div class="flex items-center space-x-6 text-white opacity-80">
-                        <a href="#" class="hover:opacity-100 transition-opacity">Privacy</a>
-                        <a href="#" class="hover:opacity-100 transition-opacity">Terms</a>
-                        <a href="#" class="hover:opacity-100 transition-opacity">Support</a>
+                        <a href="{{ route('privacy') }}" class="hover:opacity-100 transition-opacity">Privacy</a>
+                        <a href="{{ route('terms') }}" class="hover:opacity-100 transition-opacity">Terms</a>
+                        <a href="{{ route('support') }}" class="hover:opacity-100 transition-opacity">Support</a>
                     </div>
                 </div>
                 

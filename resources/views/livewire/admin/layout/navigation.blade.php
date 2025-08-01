@@ -46,7 +46,7 @@ new class extends Component
                                   {{ request()->routeIs('admin.dashboard') 
                                      ? 'bg-white bg-opacity-20 shadow-lg' 
                                      : 'hover:bg-white hover:bg-opacity-10' }}">
-                            <span class="mr-2">📊</span> Admin Dashboard
+                            <span class="mr-2"></span> Admin Dashboard
                         </a>
                         <a href="{{ route('admin.users.index') }}" 
                            wire:navigate
@@ -54,7 +54,7 @@ new class extends Component
                                   {{ request()->routeIs('admin.users.*') 
                                      ? 'bg-white bg-opacity-20 shadow-lg' 
                                      : 'hover:bg-white hover:bg-opacity-10' }}">
-                            <span class="mr-2">👥</span> Users
+                            <span class="mr-2"></span> Users
                         </a>
                         <a href="{{ route('admin.templates.index') }}" 
                            wire:navigate
@@ -62,7 +62,7 @@ new class extends Component
                                   {{ request()->routeIs('admin.templates.*') 
                                      ? 'bg-white bg-opacity-20 shadow-lg' 
                                      : 'hover:bg-white hover:bg-opacity-10' }}">
-                            <span class="mr-2">📄</span> Templates
+                            <span class="mr-2"></span> Templates
                         </a>
                     @else
                         <a href="{{ route('dashboard') }}" 
@@ -71,16 +71,16 @@ new class extends Component
                                   {{ request()->routeIs('dashboard') 
                                      ? 'bg-white bg-opacity-20 shadow-lg' 
                                      : 'hover:bg-white hover:bg-opacity-10' }}">
-                            <span class="mr-2">🏠</span> Dashboard
+                            <span class="mr-2"></span> Dashboard
                         </a>
 
                         <a href="{{ route('pages.create') }}" 
                            wire:navigate
                            class="inline-flex items-center px-4 py-2 text-sm font-bold text-white rounded-full transition-all
-                                  {{ request()->routeIs('dashboard') 
+                                  {{ request()->routeIs('pages.create') 
                                      ? 'bg-white bg-opacity-20 shadow-lg' 
                                      : 'hover:bg-white hover:bg-opacity-10' }}">
-                            <span class="mr-2">➕</span> Tambah Halaman
+                            <span class="mr-2"></span> Tambah Halaman
                         </a>
                         @endif
                 </div>
@@ -103,7 +103,7 @@ new class extends Component
                     </x-slot>
 
                     <x-slot name="content">
-                        <div class="bg-white rounded-xl shadow-xl border border-gray-100 overflow-hidden">
+                        <div class="bg-white shadow-xl border border-gray-100 overflow-hidden">
                             <div class="bg-gradient-to-r from-blue-500 to-cyan-500 px-4 py-3">
                                 <p class="text-xs text-white font-bold uppercase tracking-wider">Account Menu</p>
                             </div>
@@ -111,7 +111,7 @@ new class extends Component
                                wire:navigate
                                class="block px-4 py-3 text-sm text-gray-700 hover:bg-gradient-to-r hover:from-gray-50 hover:to-blue-50 transition-all group">
                                 <div class="flex items-center">
-                                    <span class="mr-3 text-lg group-hover:scale-110 transition-transform">👤</span>
+                                    <span class="mr-3 text-lg group-hover:scale-110 transition-transform"></span>
                                     <span class="font-medium">Profile</span>
                                 </div>
                             </a>
@@ -121,7 +121,7 @@ new class extends Component
                                 <button type="submit" 
                                         class="block w-full text-left px-4 py-3 text-sm text-red-600 hover:bg-gradient-to-r hover:from-red-50 hover:to-pink-50 transition-all group">
                                     <div class="flex items-center">
-                                        <span class="mr-3 text-lg group-hover:scale-110 transition-transform">🚪</span>
+                                        <span class="mr-3 text-lg group-hover:scale-110 transition-transform"></span>
                                         <span class="font-medium">Log Out</span>
                                     </div>
                                 </button>
@@ -154,7 +154,7 @@ new class extends Component
                              ? 'bg-white bg-opacity-20' 
                              : 'hover:bg-white hover:bg-opacity-10' }}">
                     <div class="flex items-center">
-                        <span class="mr-2">📊</span> Admin Dashboard
+                        <span class="mr-2"></span> Admin Dashboard
                     </div>
                 </a>
                 <a href="{{ route('admin.users.index') }}" 
@@ -164,7 +164,7 @@ new class extends Component
                              ? 'bg-white bg-opacity-20' 
                              : 'hover:bg-white hover:bg-opacity-10' }}">
                     <div class="flex items-center">
-                        <span class="mr-2">👥</span> Users
+                        <span class="mr-2"></span> Users
                     </div>
                 </a>
                 <a href="{{ route('admin.templates.index') }}" 
@@ -174,7 +174,7 @@ new class extends Component
                              ? 'bg-white bg-opacity-20' 
                              : 'hover:bg-white hover:bg-opacity-10' }}">
                     <div class="flex items-center">
-                        <span class="mr-2">📄</span> Templates
+                        <span class="mr-2"></span> Templates
                     </div>
                 </a>
             @else
@@ -185,10 +185,17 @@ new class extends Component
                              ? 'bg-white bg-opacity-20' 
                              : 'hover:bg-white hover:bg-opacity-10' }}">
                     <div class="flex items-center">
-                        <span class="mr-2">🏠</span> Dashboard
+                        <span class="mr-2"></span> Dashboard
                     </div>
                 </a>
-                
+                        <a href="{{ route('pages.create') }}" 
+                           wire:navigate
+                           class="inline-flex items-center px-4 py-2 text-sm font-bold text-white rounded-full transition-all
+                                  {{ request()->routeIs('pages.create') 
+                                     ? 'bg-white bg-opacity-20 shadow-lg' 
+                                     : 'hover:bg-white hover:bg-opacity-10' }}">
+                            <span class="mr-2"></span> Tambah Halaman
+                        </a>                
             @endif
         </div>
 
@@ -210,7 +217,7 @@ new class extends Component
                    wire:navigate
                    class="block px-4 py-2 text-white font-bold hover:bg-white hover:bg-opacity-10 transition-all">
                     <div class="flex items-center">
-                        <span class="mr-2">👤</span> Profile
+                        <span class="mr-2"></span> Profile
                     </div>
                 </a>
                 <form method="POST" action="{{ route('logout') }}">
@@ -218,7 +225,7 @@ new class extends Component
                     <button type="submit" 
                             class="block w-full text-left px-4 py-2 text-white font-bold hover:bg-white hover:bg-opacity-10 transition-all">
                         <div class="flex items-center">
-                            <span class="mr-2">🚪</span> Log Out
+                            <span class="mr-2"></span> Log Out
                         </div>
                     </button>
                 </form>

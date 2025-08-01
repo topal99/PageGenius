@@ -22,7 +22,10 @@
         }
     </script>
     <style>
-        .gradient-bg { background: linear-gradient(-45deg, #667eea, #764ba2, #f093fb, #f5576c); background-size: 400% 400%; animation: gradientShift 15s ease infinite; }
+        .gradient-bg { background: linear-gradient(-45deg, #667eea, #764ba2, #4facfe, #00f2fe);
+             /* background-size: 400% 400%;
+              animation: gradientShift 15s ease infinite;  */
+            }
         @keyframes gradientShift { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
         .glass-effect { background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.2); }
         .input-glow:focus { box-shadow: 0 0 0 3px rgba(147, 51, 234, 0.1), 0 0 20px rgba(147, 51, 234, 0.3); }
@@ -38,10 +41,19 @@
     <div class="relative w-full max-w-4xl mx-auto">
         <div class="glass-effect rounded-3xl shadow-2xl overflow-hidden">
             <div class="flex flex-col lg:flex-row min-h-[500px]">
-                
                 <div class="hidden lg:flex lg:w-1/2 bg-gradient-to-br from-purple-600 via-purple-700 to-indigo-800 p-8 lg:p-12 flex-col justify-center items-center text-white relative overflow-hidden">                    
                     <div class="absolute inset-0 bg-black opacity-20"></div>
                     <div class="relative z-10 text-center">
+                        <div class="flex mb-12 items-center space-x-3 ">
+                            <div class="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-r from-purple-600 to-indigo-600 rounded-xl flex items-center justify-center animate-glow">
+                                <svg class="w-4 h-4 sm:w-6 sm:h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                                </svg>
+                            </div>
+                            <a href="{{ route('home') }}">
+                            <span class="text-xl sm:text-2xl font-bold text-white">PageGenius</span></a>
+                        </div>
+
                         <div class="mb-8">
                              <div class="w-20 h-20 bg-white bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-4 animate-glow">
                                 <svg class="w-10 h-10" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>

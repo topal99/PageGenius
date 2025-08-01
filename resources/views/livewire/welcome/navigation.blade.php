@@ -10,17 +10,20 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
                         </svg>
                     </div>
-                    <span class="text-xl sm:text-2xl font-bold text-white">PageGenius</span>
+                    <a href="{{ route('privacy') }}">
+                    <span class="text-xl sm:text-2xl font-bold text-white">PageGenius</span></a>
                 </div>
                 
+                @if (!request()->routeIs('privacy', 'terms', 'support'))
                 <!-- Desktop Menu -->
-                <div class="hidden lg:flex items-center space-x-8">
-                    <a href="#features" class="text-white hover:text-purple-200 transition-colors duration-300">Fitur</a>
-                    <a href="#templates" class="text-white hover:text-purple-200 transition-colors duration-300">Template</a>
-                    <a href="#pricing" class="text-white hover:text-purple-200 transition-colors duration-300">Harga</a>
-                    <a href="#contact" class="text-white hover:text-purple-200 transition-colors duration-300">Kontak</a>
-                </div>
-                
+                    <div class="hidden lg:flex items-center space-x-8">
+                        <a href="#features" class="text-white hover:text-purple-200 transition-colors duration-300">Fitur</a>
+                        <a href="#templates" class="text-white hover:text-purple-200 transition-colors duration-300">Template</a>
+                        <a href="#pricing" class="text-white hover:text-purple-200 transition-colors duration-300">Harga</a>
+                        <a href="#contact" class="text-white hover:text-purple-200 transition-colors duration-300">Kontak</a>
+                    </div>
+                @endif
+
                 <!-- Desktop Auth Buttons -->
                 <div class="hidden sm:flex items-center space-x-4">
                     <a href="{{ url('/dashboard') }}" class="text-white hover:text-purple-200 transition-colors duration-300">
@@ -57,7 +60,8 @@
                     </button>
                 </div>
             </div>
-            
+
+            @if (!request()->routeIs('privacy', 'terms', 'support'))
             <!-- Mobile Menu -->
             <div id="mobile-menu" class="sm:hidden mt-4 pt-4 border-t border-white/20 hidden">
                 <div class="flex flex-col space-y-3">
@@ -73,7 +77,9 @@
                     </form>
                 </div>
             </div>
-            
+            @endif
+
+            @if (!request()->routeIs('privacy', 'terms', 'support'))
             <!-- Tablet Menu -->
             <div id="tablet-menu" class="hidden sm:block lg:hidden mt-4 pt-4 border-t border-white/20" style="display: none;">
                 <div class="flex flex-col space-y-3">
@@ -83,6 +89,8 @@
                     <a href="#contact" class="text-white hover:text-purple-200 transition-colors duration-300 py-2">Kontak</a>
                 </div>
             </div>
+            @endif
+
         </div>
     </div>
     
@@ -98,9 +106,11 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
                         </svg>
                     </div>
-                    <span class="text-xl sm:text-2xl font-bold text-white">PageGenius</span>
+                    <a href="{{ route('home') }}">
+                    <span class="text-xl sm:text-2xl font-bold text-white">PageGenius</span></a>
                 </div>
-                
+
+                @if (!request()->routeIs('privacy', 'terms', 'support'))
                 <!-- Desktop Menu -->
                 <div class="hidden lg:flex items-center space-x-8">
                     <a href="#features" class="text-white hover:text-purple-200 transition-colors duration-300">Fitur</a>
@@ -108,7 +118,8 @@
                     <a href="#pricing" class="text-white hover:text-purple-200 transition-colors duration-300">Harga</a>
                     <a href="#contact" class="text-white hover:text-purple-200 transition-colors duration-300">Kontak</a>
                 </div>
-                
+                @endif
+
                 <!-- Desktop Auth Buttons -->
                 <div class="hidden md:flex items-center space-x-4">
                     <a href="{{ route('login') }}" class="text-white hover:text-purple-200 transition-colors duration-300">
@@ -132,14 +143,16 @@
                 </div>
             </div>
         
+            
             <!-- Mobile Menu for Guests -->
              <div id="guest-mobile-menu" class="lg:hidden mt-4 pt-4 border-t border-white/20 hidden">
                 <div class="flex flex-col space-y-3">
+                    @if (!request()->routeIs('privacy', 'terms', 'support'))
                     <a href="#features" class="text-white hover:text-purple-200 transition-colors duration-300 py-2">Fitur</a>
                     <a href="#templates" class="text-white hover:text-purple-200 transition-colors duration-300 py-2">Template</a>
                     <a href="#pricing" class="text-white hover:text-purple-200 transition-colors duration-300 py-2">Harga</a>
                     <a href="#contact" class="text-white hover:text-purple-200 transition-colors duration-300 py-2">Kontak</a>
-                    
+                    @endif
                     <!-- Auth links in mobile menu -->
                     <div class="pt-3 border-t border-white/20 flex flex-col items-center space-y-3">
                         <a href="{{ route('login') }}" class="block text-purple-600 rounded-lg w-1/2 text-center bg-white hover:bg-purple-50 transition-colors duration-300 py-2">

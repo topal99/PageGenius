@@ -19,13 +19,17 @@ use App\Livewire\Admin\Users\Edit as AdminUsersEdit; // <-- Tambahkan ini
 |--------------------------------------------------------------------------
 */
 
-Route::view('/', 'welcome');
+Route::view('/', 'welcome')->name('home');
+
 Route::post('/logout', function () {
         auth()->logout();
         request()->session()->invalidate();
         request()->session()->regenerateToken();
         return redirect('/');
     })->name('logout');
+Route::view('/privacy-policy', 'pages.privacy')->name('privacy');
+Route::view('/terms-of-service', 'pages.terms')->name('terms');
+Route::view('/support', 'pages.support')->name('support');
 
 require __DIR__.'/auth.php';
 

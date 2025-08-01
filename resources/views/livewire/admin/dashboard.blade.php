@@ -1,12 +1,4 @@
 <div>
-    <x-slot name="header">
-        <div class="bg-gradient-to-r from-blue-600 to-cyan-600 py-6">
-            <h2 class="font-black text-3xl text-white text-center drop-shadow-lg">
-                {{ __('Admin Dashboard') }}
-            </h2>
-        </div>
-    </x-slot>
-
     <div class="py-12 bg-gradient-to-br from-gray-50 to-blue-50 min-h-screen">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             
@@ -72,7 +64,7 @@
                     <div class="bg-gradient-to-r from-blue-500 to-cyan-500 p-6">
                         <div class="flex items-center justify-between">
                             <h3 class="text-xl font-bold text-white flex items-center">
-                                <span class="mr-2">👤</span> Pengguna Terbaru
+                                <span class="mr-2"></span> Pengguna Terbaru
                             </h3>
                             <button class="bg-white bg-opacity-20 hover:bg-opacity-30 text-white px-4 py-2 rounded-full text-sm font-medium transition-all">
                                 Lihat Semua
@@ -121,7 +113,7 @@
                     <div class="bg-gradient-to-r from-green-500 to-emerald-500 p-6">
                         <div class="flex items-center justify-between">
                             <h3 class="text-xl font-bold text-white flex items-center">
-                                <span class="mr-2">📝</span> Halaman Terbaru
+                                <span class="mr-2"></span> Halaman Terbaru
                             </h3>
                             <button class="bg-white bg-opacity-20 hover:bg-opacity-30 text-white px-4 py-2 rounded-full text-sm font-medium transition-all">
                                 Lihat Semua
@@ -174,7 +166,7 @@
             <!-- Additional Stats -->
             <div class="mt-8 bg-white rounded-2xl shadow-xl border border-gray-100 p-6">
                 <h3 class="text-xl font-bold text-gray-900 mb-6 flex items-center">
-                    <span class="mr-2">📊</span> Statistik Penggunaan Template
+                    <span class="mr-2"></span> Statistik Penggunaan Template
                 </h3>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                     @foreach($templatePopularity->take(3) as $template)

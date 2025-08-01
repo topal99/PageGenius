@@ -1,11 +1,3 @@
-<x-slot name="header">
-    <div class="bg-gradient-to-r from-blue-600 to-cyan-600 py-6">
-        <h2 class="font-black text-3xl text-white text-center drop-shadow-lg">
-            {{ __('Dashboard') }}
-        </h2>
-    </div>
-</x-slot>
-
 <div class="py-12 bg-gradient-to-br from-gray-50 to-blue-50 min-h-screen">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <!-- Stats Cards -->
